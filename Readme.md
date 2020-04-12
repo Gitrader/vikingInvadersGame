@@ -6,31 +6,25 @@ This game is a survival game where Vikings are trying to penetrate a king’s fo
 
 More Vikings you kill, more points you get. However if 3 Vikings succeed to avoid your arrows and penetrate the fortress, the game is over!
 
- 
-
-## About the project  
+## About the project
 
 ### MVP (DOM-CANVAS)
 
 A player that can move in two directions left and right and can throw projectiles has to kill the maximum of Vikings (enemies) before they touch the bottom of the canvas 3 times.
 
- 
-
 ### Backlog
 
 - Choose another weapon
-- Increase level difficulty 
-- Extra sound effects 
+- Increase level difficulty
+- Extra sound effects
 - Table of scores with the ranking of the players
-
- 
 
 ## Data structure
 
-```js
+```
 1.index.html
 
-2.styles.css
+2.style.css
 
 3.main.js
 
@@ -45,33 +39,31 @@ A player that can move in two directions left and right and can throw projectile
 
 1. ##### Index with js files
 
-2. ##### Styles.css
+2. ##### Style.css
 
 Style arround the canvas
 
 3. ##### Main.js
 
-Build dom 
+Build dom
 
-Create splash screen / Remove splash screen 
+Create splash screen / Remove splash screen
 
-Create game screen / Remove game screen 
+Create game screen / Remove game screen
 
 Create GameOver screen / Remove GameOver screen (Play Again button)
 
-Start game 
+Start game
 
 Window event listener load game
 
 Keydown event listener with keycode (left, right, spacebar)
 
-
-
 4. ##### Game Constructor
 
 ###### Properties :
 
-- canvas 
+- canvas
 - ctx (2d)
 - enemies
 - player
@@ -83,15 +75,13 @@ Keydown event listener with keycode (left, right, spacebar)
 
 - start
 - startLoop : enemies, player and projectiles animation
-- checkCollision : (projectiles and enemies + enemies  and canvas border)
-- gameOver :  when enemies reached 3 times the bottom of the canvas
+- checkCollision : (projectiles and enemies + enemies and canvas border)
+- gameOver : when enemies reached 3 times the bottom of the canvas
 - Updating scores with updateGameStats()
-
-
 
 5. ##### Player Constructor
 
-###### Properties : 
+###### Properties :
 
 - canvas
 - ctx (2d)
@@ -102,14 +92,12 @@ Keydown event listener with keycode (left, right, spacebar)
 - speed
 - lives
 
-###### Methods: 
+###### Methods:
 
 - setDirection
 - draw
 - update
 - collideWithEnemy
-
-
 
 6. ##### Enemy Constructor
 
@@ -124,13 +112,11 @@ Keydown event listener with keycode (left, right, spacebar)
 - speed
 - lives
 
-###### Methods: 
+###### Methods:
 
 - draw
 - collideWithCanvas
 - remove
-
-
 
 7. ##### Projectiles Constructor
 
@@ -150,33 +136,27 @@ Keydown event listener with keycode (left, right, spacebar)
 - collideWithEnemy
 - remove
 
-
-
 ## States and States Transitions
 
+- startScreen
 
+  ​ Bonus : choose your weapon
 
-startScreen
+  ​ Start the game
 
-​	Bonus : choose your weapon
+  ​ Goes to gameScreen when Start button is clicked
 
-​	Start the game
+* gameScreen
 
-​	Goes to gameScreen when Start button is clicked
+​ Game running while lives > 0
 
-gameScreen
+​ Goes to gameoverScreen if lives < 0
 
-​	Game running while lives > 0
+- gameOverScreen
 
-​	Goes to gameoverScreen if lives < 0 
+​ Shows Game Over with 3 random Viking names and the possibility to share the score on Slack
 
-gameOverScreen
-
-​	Shows Game Over with 3 random Viking names and the possibility to 	share the score on Slack
-
-​	Goes back to Game Screen when Restart button is clicked
-
-
+​ Goes back to Game Screen when Restart button is clicked
 
 ## Task
 
@@ -203,21 +183,14 @@ gameOverScreen
 - Add Slack plug in to share the score
 - Add 3 random Viking names on the gameOverScreen
 
-
-
 ## Trello
 
 [Trello link](https://trello.com/b/9iH3qkmG/vikings-invadors-game)
-
-
 
 ## Git
 
 [Link Repo - Link Deploy](https://github.com/Gitrader/vikingInvadersGame.git)
 
-
-
 ## Slides
 
 URls for the project presentation (slides)
-
