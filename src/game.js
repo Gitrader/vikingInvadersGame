@@ -160,7 +160,7 @@ class Game {
 
     window.requestAnimationFrame(loop)
   }
-
+//////////////
   // checkCollisions () {
   //   this.enemies.forEach(function (enemy) {
   //     if (this.projectiles.didCollide(enemy)) {

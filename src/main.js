@@ -70,7 +70,17 @@ function removeGameScreen () {
 }
 
 // game over screen
-function createGameOverScreen () {}
+function createGameOverScreen () {
+  gameOverScreen = buildDom(`
+  <main>
+    <h1>Game Over</h1>
+    <section>
+    <p> Odin, Ragnar & Magnus managed breaking into the fort and killed our King</p>
+    <button>Restart</button>
+    </section>
+  </main>`
+  )
+}
 function removeGameOverScreen () {}
 
 // start the game, end the game
