@@ -29,10 +29,11 @@ function createSplashScreen () {
     </section>
   </main>`
   )
-  // DON'T FORGET TO ADD INSTRUCTIONS
+
   document.body.appendChild(splashScreen)
 
   const startButton = splashScreen.querySelector('button')
+  console.log(startGame)
   startButton.addEventListener('click', startGame)
 }
 
@@ -75,12 +76,12 @@ function removeGameOverScreen () {}
 // start the game, end the game
 function startGame () {
   removeSplashScreen()
-  removeGameOverScreen()
+  // removeGameOverScreen()
 
   createGameScreen()
 
   game = new Game()
-  game.gameScreen = createGameScreen()
+  game.gameScreen = gameScreen
 
   // Start game
   game.start()
