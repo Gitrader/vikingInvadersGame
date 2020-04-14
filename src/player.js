@@ -14,6 +14,7 @@ class Player {
     this.score = 0
     this.isShootingProjectiles = true
     this.image = new Image()
+    this.image.src = '../img/bow-and-arrow2.png'
   }
 
   // ADD ENEMY COLLISION TO THE CANVAS
@@ -62,7 +63,7 @@ class Player {
   }
 
   draw () {
-    this.image.src = '../img/bow-and-arrow2.png'
+    
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
     // this.ctx.fillStyle = 'green'
     // this.ctx.fillRect(this.x, this.y, this.height, this.width)

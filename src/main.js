@@ -71,7 +71,7 @@ function removeGameScreen () {
 }
 
 // game over screen
-function createGameOverScreen () {
+function createGameOverScreen (score) {
   gameOverScreen = buildDom(`
   <main>
 
@@ -79,7 +79,7 @@ function createGameOverScreen () {
     <section id="game-over">
     <div class="score">
           <span class="label">Score:</span>
-          <span class="value"></span>
+          <span class="value">${score}</span>
         </div>
     <p id="gameover-paragraph"> Odin, Ragnar & Magnus managed breaking into the fort and killed our King</p>
     <div class="gameover-buttons">
@@ -112,9 +112,9 @@ function startGame () {
   game.start()
 }
 
-function endGame () {
+function endGame (score) {
   removeGameScreen()
-  createGameOverScreen()
+  createGameOverScreen(score)
 }
 
 window.addEventListener('load', createSplashScreen)

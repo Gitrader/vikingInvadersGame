@@ -166,13 +166,14 @@ class Game {
   gameOver () {
     this.gameIsOver = true
 
-    endGame()
+    endGame(this.score)
   }
 
   updateGameStats () {
     this.livesElement.innerHTML = this.player.lives
     this.scoreElement.innerHTML = this.score
+    
 
-    this.scoreElement.innerHTML = this.score
+    
   }
 }
