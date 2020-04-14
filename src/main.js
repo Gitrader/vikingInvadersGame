@@ -76,10 +76,13 @@ function createGameOverScreen () {
     <h1>Game Over</h1>
     <section>
     <p> Odin, Ragnar & Magnus managed breaking into the fort and killed our King</p>
-    <button>Restart</button>
+    <button id="restart">Restart</button>
+    <button id="slack">Share on Slack</button>
     </section>
   </main>`
   )
+  document.body.appendChild(gameOverScreen)
+  return gameOverScreen
 }
 function removeGameOverScreen () {}
 
@@ -97,6 +100,9 @@ function startGame () {
   game.start()
 }
 
-function endGame () {}
+function endGame () {
+  removeGameScreen()
+  createGameOverScreen()
+}
 
 window.addEventListener('load', createSplashScreen)

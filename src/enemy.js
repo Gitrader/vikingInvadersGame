@@ -30,7 +30,7 @@ class Enemy {
     return (this.y + this.size > 0) && (this.x + this.size < this.canvas.width)
   }
 
-  isNotOnTheScreen () {
-    return (this.y + this.size < 0) && (this.x + this.size > this.canvas.width)
-  }
+//   isNotOnTheScreen () {
+//     return (this.y + this.size < 0) && (this.x + this.size > this.canvas.width)
+//   }
 }

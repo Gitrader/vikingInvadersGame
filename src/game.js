@@ -32,16 +32,21 @@ class Game {
   }
 
   checkProjectilesEnemyCollisions () {
+    console.log('SALUT')
     this.enemies.forEach(function (enemy) {
       this.projectiles.forEach(function (oneProjectile) {
         if (oneProjectile.didCollide(enemy)) {
-          enemy.y = 0 - enemy.size
+          enemy.y = 0 - 10000
+
           oneProjectile.y = 0 - oneProjectile.size
           this.score += 10
           console.log('this is the score', this.score)
         }
       }, this)
     }, this)
+    if (this.player.lives <= 0) {
+      this.gameOver()
+    }
   }
 
   // instantiate the player, set the canvas, start the loop
@@ -62,7 +67,7 @@ class Game {
     this.canvas.setAttribute('width', this.containerWidth)
     this.canvas.setAttribute('height', this.containerHeight)
 
-    this.player = new Player(this.canvas, 1)
+    this.player = new Player(this.canvas, 10)
 
     // Event Listener to move the player
 
@@ -89,7 +94,7 @@ class Game {
     const loop = function () {
       // // 0. Our player was already created - via `game.start()`
       // console.log('insideLoop')
-
+      console.log('VIE', this.player.lives)
       // // 1. Create new enemies randomly
       if (Math.random() > 0.98) {
         const randomWidthPosX = this.canvas.width * Math.random()
@@ -100,26 +105,26 @@ class Game {
       // // 2. Check if player had hit any enemy (check all enemies)
       // this.checkCollisions()
 
+      this.checkProjectilesEnemyCollisions()
       // // 3. Update the player and check if player is going off the screen
       this.player.handleScreenCollision()
 
       // // 4. Move the existing enemies
-      // // 5. Check if any enemy is going of the screen
+      // // 5. Check if any enemy is going of the screen if not -1 lfe
       const enemiesOnScreen = this.enemies.filter(function (enemy) {
         console.log('TEST')
         enemy.updatePosition()
         const isInsideScreen = enemy.isInsideScreen()
+        console.log(enemy.y + enemy.size)
+        if (enemy.y + enemy.size >= this.canvas.height) {
+          this.player.lives -= 1
+          enemy.y = -1 * enemy.size
+          console.log('perte de vie')
+        }
         return isInsideScreen
-      })
+      }, this)
 
       this.enemies = enemiesOnScreen
-      /// ////////////////////////////////////////////////////////////////
-      // if (this.enemy !== this.enemy.isInsideScreen) {
-      //   this.lives -= 1
-      // }
-      // bottom //if (this.enemy.y + this.enemy.size === this.canvas.x) {
-      //   this.lives -= 1
-      // }
 
       // 2. CLEAR THE CANVAS
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
@@ -141,7 +146,6 @@ class Game {
       })
 
       // Check if projectiles hit enemies
-      this.checkProjectilesEnemyCollisions()
 
       // 4. TERMINATE LOOP IF THE GAME IS OVER
       if (!this.gameIsOver) {
@@ -160,7 +164,7 @@ class Game {
 
     window.requestAnimationFrame(loop)
   }
-//////////////
+  /// ///////////
   // checkCollisions () {
   //   this.enemies.forEach(function (enemy) {
   //     if (this.projectiles.didCollide(enemy)) {
@@ -172,7 +176,13 @@ class Game {
   //   })
   // }
 
-  gameOver () {}
+  gameOver () {
+    this.gameIsOver = true
+    endGame()
+  }
 
-  updateGameStats () {}
+  updateGameStats () {
+    this.livesElement.innerHTML = this.player.lives
+    this.scoreElement.innerHTML = this.score
+  }
 }
