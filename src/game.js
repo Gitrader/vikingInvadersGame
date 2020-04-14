@@ -67,7 +67,7 @@ class Game {
     this.canvas.setAttribute('width', this.containerWidth)
     this.canvas.setAttribute('height', this.containerHeight)
 
-    this.player = new Player(this.canvas, 10)
+    this.player = new Player(this.canvas, 1)
 
     // Event Listener to move the player
 
@@ -145,8 +145,6 @@ class Game {
         projectiles.updatePosition()
       })
 
-      // Check if projectiles hit enemies
-
       // 4. TERMINATE LOOP IF THE GAME IS OVER
       if (!this.gameIsOver) {
         window.requestAnimationFrame(loop)
@@ -164,17 +162,6 @@ class Game {
 
     window.requestAnimationFrame(loop)
   }
-  /// ///////////
-  // checkCollisions () {
-  //   this.enemies.forEach(function (enemy) {
-  //     if (this.projectiles.didCollide(enemy)) {
-  //       this.player.updateScore()
-
-  //       // Move the enemy of the screen up
-  //       enemy.y = 0 - enemy.size
-  //     }
-  //   })
-  // }
 
   gameOver () {
     this.gameIsOver = true

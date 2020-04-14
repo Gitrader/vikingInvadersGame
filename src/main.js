@@ -74,23 +74,27 @@ function createGameOverScreen () {
   gameOverScreen = buildDom(`
   <main>
     <h1>Game Over</h1>
-    <section>
-    <p> Odin, Ragnar & Magnus managed breaking into the fort and killed our King</p>
+    <section id="game-over">
+    <p id="gameover-paragraph"> Odin, Ragnar & Magnus managed breaking into the fort and killed our King</p>
     <button id="restart">Restart</button>
     <button id="slack">Share on Slack</button>
     </section>
   </main>`
   )
+
+  const restartButton = gameOverScreen.querySelector('#restart')
+  restartButton.addEventListener('click', startGame)
   document.body.appendChild(gameOverScreen)
   return gameOverScreen
 }
-function removeGameOverScreen () {}
+function removeGameOverScreen () {
+  gameOverScreen.remove()
+}
 
 // start the game, end the game
 function startGame () {
   removeSplashScreen()
   // removeGameOverScreen()
-
   createGameScreen()
 
   game = new Game()

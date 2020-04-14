@@ -168,3 +168,24 @@ i {
   width: 536px;
   height: 700px;
 }
+
+#game-over{
+  
+  margin-top: 50px;
+  padding-top:18%;
+  background-repeat: no-repeat;
+  /* background-size: 28%;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
+}
+
+#gameover-paragraph{
+  
+}
+
+#game-over>p{
+  margin-top:-10%;
+}
