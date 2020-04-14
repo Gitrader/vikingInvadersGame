@@ -19,20 +19,21 @@ function createSplashScreen () {
   splashScreen = buildDom(`
   <main class=splash1>
     <h1>Viking Invaders</h1>
-    <section>
+    <section class="section-splash1">
     <p> You are the last guardian standing to defend our King's fortress.
     <p> Choose your weapon and kill the maximum of Vikings.</p>
      <p>If 3 Vikings succeed to reach  the fortress our King will die!</p>
      <p>Use your keyboard arrows <kbd><i class="arrow left"></i></kbd> <kbd><i class="arrow right"></i></kbd> to move and press your <kbd>spacebar</kbd> to throw your projectiles.</p>
      <p> Hurry up, our King's life is in your hands! </p>
-    <button>Start</button>
+    
+    <a href="#" id="start">Start</a>
     </section>
   </main>`
   )
 
   document.body.appendChild(splashScreen)
 
-  const startButton = splashScreen.querySelector('button')
+  const startButton = splashScreen.querySelector('#start')
   console.log(startGame)
   startButton.addEventListener('click', startGame)
 }
@@ -73,11 +74,18 @@ function removeGameScreen () {
 function createGameOverScreen () {
   gameOverScreen = buildDom(`
   <main>
-    <h1>Game Over</h1>
+
+    <h1 class="gameover-title">Game Over</h1>
     <section id="game-over">
+    <div class="score">
+          <span class="label">Score:</span>
+          <span class="value"></span>
+        </div>
     <p id="gameover-paragraph"> Odin, Ragnar & Magnus managed breaking into the fort and killed our King</p>
-    <button id="restart">Restart</button>
-    <button id="slack">Share on Slack</button>
+    <div class="gameover-buttons">
+    <a href="#" id="restart">Restart</a>
+    <a href="https://app.slack.com/client/T0108L8M317/C010LF86RC7" class="slack">Share on Slack</a>
+    <div>
     </section>
   </main>`
   )
@@ -87,14 +95,14 @@ function createGameOverScreen () {
   document.body.appendChild(gameOverScreen)
   return gameOverScreen
 }
-function removeGameOverScreen () {
-  gameOverScreen.remove()
+function removeScreen () {
+  document.body.innerHTML = ''
 }
 
 // start the game, end the game
 function startGame () {
-  removeSplashScreen()
-  // removeGameOverScreen()
+  removeScreen()
+
   createGameScreen()
 
   game = new Game()

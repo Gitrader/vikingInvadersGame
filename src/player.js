@@ -62,7 +62,7 @@ class Player {
   }
 
   draw () {
-    this.image.src = '../img/bow-and-arrow.png'
+    this.image.src = '../img/bow-and-arrow2.png'
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
     // this.ctx.fillStyle = 'green'
     // this.ctx.fillRect(this.x, this.y, this.height, this.width)

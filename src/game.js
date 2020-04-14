@@ -67,7 +67,7 @@ class Game {
     this.canvas.setAttribute('width', this.containerWidth)
     this.canvas.setAttribute('height', this.containerHeight)
 
-    this.player = new Player(this.canvas, 1)
+    this.player = new Player(this.canvas, 3)
 
     // Event Listener to move the player
 
@@ -165,11 +165,14 @@ class Game {
 
   gameOver () {
     this.gameIsOver = true
+
     endGame()
   }
 
   updateGameStats () {
     this.livesElement.innerHTML = this.player.lives
+    this.scoreElement.innerHTML = this.score
+
     this.scoreElement.innerHTML = this.score
   }
 }

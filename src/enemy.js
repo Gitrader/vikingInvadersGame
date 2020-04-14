@@ -4,9 +4,9 @@ class Enemy {
   constructor (canvas, x, speed) {
     this.canvas = canvas
     this.ctx = this.canvas.getContext('2d')
-    this.size = 200
-    this.height = 200
-    this.width = 200
+    this.size = 100
+    this.height = 100
+    this.width = 100
     this.y = 0 - this.height
     this.x = x
     this.speed = speed
