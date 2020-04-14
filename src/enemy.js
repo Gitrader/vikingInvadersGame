@@ -11,11 +11,10 @@ class Enemy {
     this.x = x
     this.speed = speed
     this.image = new Image()
-    this.image.src = '../img/noun_Viking_8401.png'
+    this.image.src = 'img/noun_Viking_8401.png'
   }
 
   draw () {
-    
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
     // this.ctx.fillStyle = 'red'
     // this.ctx.fillRect(this.x, this.y, this.height, this.width)

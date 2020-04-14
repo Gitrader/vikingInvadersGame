@@ -12,7 +12,7 @@ class Projectiles {
     this.direction = 1
     this.speed = 5
     this.image = new Image()
-    this.image.src = '../img/arrow-projectile2.png'
+    this.image.src = 'img/arrow-projectile2.png'
   }
 
   draw () {
