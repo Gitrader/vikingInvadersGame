@@ -261,7 +261,7 @@ i {
 }
 
 .section-splash2 {
-  background-image: url("img/wood-board.png");
+  background-image: url("../img/wood-board.png");
   background-repeat: no-repeat;
   background-size: 50%;
   padding: 15%;
