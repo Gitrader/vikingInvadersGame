@@ -4,6 +4,7 @@
 
 let game
 let splashScreen
+let chooseWeapon
 let gameScreen
 let gameOverScreen
 
@@ -40,28 +41,59 @@ function createSplashScreen () {
 
 function removeSplashScreen () {
   splashScreen.remove()
+
 }
+
+// choose your weapon
+// function chooseYourWeapon () {
+//   chooseWeapon = buildDom(`
+//   <main class=splash2>
+//     <h1>Choose your weapon</h1>
+//     <section class="section-splash2">
+//     <div>
+//     <img>
+//     <p class="bow">Bow</p>
+//     <p>Difficuly : Easy</p>
+//     </div>
+//     <div>
+//     <img>
+//     <p>Canon</p>
+//     <p>Difficuly : Hard</p>
+//     </div>
+//   </main>`
+//   )
+
+//   document.body.appendChild(chooseYourWeapon)
+//   const bowWeapon = chooseWeapon.querySelector('.bow')
+//   console.log(startGame)
+//   bowWeapon.addEventListener('click', startGame)
+
+//   function removeChooseYourWeapon () {
+//     chooseWeapon.remove()
+  
+//   }
 
 // game screen
 
 function createGameScreen () {
   gameScreen = buildDom(`
-    <main class="game container">
-      <header>
-        <div class="lives">
-          <span class="label">Lives:</span>
-          <span class="value"></span>
-        </div>
-        <div class="score">
-          <span class="label">Score:</span>
-          <span class="value"></span>
-        </div>
-      </header>
-      <div class="canvas-container">
-      <canvas>
-      </canvas>
-      </div>
-    </main>
+  <main class="game-container">
+  <section class="stats">
+  
+    <div class="lives">
+      <span class="label">Lives:</span>
+      <span class="value"></span>
+    </div>
+    <div class="score">
+      <span class="label">Score:</span>
+      <span class="value"></span>
+    </div>
+  </section>
+  <div class="canvas-container">
+  <canvas>
+  </canvas>
+  </div>
+</main>
     `)
   document.body.appendChild(gameScreen)
   return gameScreen
@@ -77,7 +109,7 @@ function createGameOverScreen (score) {
 
     <h1 class="gameover-title">Game Over</h1>
     <section id="game-over">
-    <div class="score">
+    <div class="gameover-score">
           <span class="label">Score:</span>
           <span class="value">${score}</span>
         </div>
@@ -89,6 +121,7 @@ function createGameOverScreen (score) {
     </section>
   </main>`
   )
+  
 
   const restartButton = gameOverScreen.querySelector('#restart')
   restartButton.addEventListener('click', startGame)

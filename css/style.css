@@ -24,6 +24,11 @@ html {
   src: url("../Fonts/enchanted_land/Enchanted\ Land.otf");
 }
 
+@font-face {
+  font-family: wood;
+  src: url("../Fonts/Woodwarrior/Woodwarrior-Regular.otf");
+}
+
 /* html,
 body {
   height: 100%;
@@ -134,14 +139,28 @@ i {
   height: 100%;
 }
 
-.game header {
+/* .game header {
   height: 50px;
   display: flex;
   align-items: center;
+} */
+
+.stats {
+  background-image: url("../img/score.png");
+  background-repeat: no-repeat;
+  background-size: 20%;
+  margin-top: -20px;
+  padding-left: 90px;
+  padding-top: 150px;
+  padding-bottom: 30%;
+  color: rgb(101, 95, 74);
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-family: enchanted;
 }
 
 .game .lives {
-  flex: 1;
+  padding-top: 50px;
 }
 
 .game .score {
@@ -156,12 +175,12 @@ i {
   font-style: italic;
 }
 
-.game .canvas-container {
+.canvas-container {
   background-image: url("../img/canvas-background2.jpg");
-  /* background-size: 300px;
-  padding: 50% 20%;
-  margin-left: 220px;*/
-  /* margin-top: -50px; */
+  background-size: 300px;
+  padding: -250%;
+  margin-left: 450px;
+  margin-top: -43%;
   border-radius: 10px;
   background-size: cover;
   background-position: center;
@@ -189,7 +208,7 @@ i {
   padding-top: -20px;
   letter-spacing: 1px;
   font-size: x-large;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   margin-left: 20px;
 }
 
@@ -232,4 +251,11 @@ i {
   padding: 2px 6px 2px 6px;
   border-color: white;
   border-radius: 5px;
+}
+
+.gameover-score {
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-family: enchanted;
+  margin-bottom: 30px;
 }

@@ -95,6 +95,7 @@ class Game {
       // // 0. Our player was already created - via `game.start()`
       // console.log('insideLoop')
       console.log('VIE', this.player.lives)
+
       // // 1. Create new enemies randomly
       if (Math.random() > 0.98) {
         const randomWidthPosX = this.canvas.width * Math.random()
@@ -103,7 +104,6 @@ class Game {
       }
 
       // // 2. Check if player had hit any enemy (check all enemies)
-      // this.checkCollisions()
 
       this.checkProjectilesEnemyCollisions()
       // // 3. Update the player and check if player is going off the screen
@@ -130,7 +130,7 @@ class Game {
       this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
 
       // 3. UPDATE THE CANVAS
-      // // Draw the player
+      //  Draw the player
       this.player.draw()
 
       // // Draw the enemies
@@ -172,8 +172,5 @@ class Game {
   updateGameStats () {
     this.livesElement.innerHTML = this.player.lives
     this.scoreElement.innerHTML = this.score
-    
-
-    
   }
 }
