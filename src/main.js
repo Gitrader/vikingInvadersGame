@@ -52,13 +52,13 @@ function chooseYourWeapon () {
     <h1 class="choose-title">Choose your weapon</h1>
     <section class="section-splash2">
     <div class="weapon" id="bow-weapon">
-    <img src="/img/bow-wp.png" class="img-bow" alt="bow">
+    <img src="img/bow-wp.png" class="img-bow" alt="bow">
     <br>
     <a href="#" class="bow-p">Bow</a>
     <p>Difficulty: Easy</p>
     </div>
     <div class="weapon" id="canon-weapon">
-    <img src="/img/canon-wp.png" class="img-canon" alt="canon">
+    <img src="img/canon-wp.png" class="img-canon" alt="canon">
     <br>
     <a href="#" class="canon-p">Canon</a>
     <p>Difficulty: Hard</p>
@@ -66,8 +66,8 @@ function chooseYourWeapon () {
     <section>
   </main>`
   )
-  //<p class="canon-p">Canon</p>
-  //<p class="bow-p">Bow</p>
+  // <p class="canon-p">Canon</p>
+  // <p class="bow-p">Bow</p>
   document.body.appendChild(chooseWeapon)
   const bowWeapon = chooseWeapon.querySelector('.bow-p')
   const canonWeapon = chooseWeapon.querySelector('.canon-p')
