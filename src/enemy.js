@@ -13,6 +13,8 @@ class Enemy {
     this.image = new Image()
     this.image.src = 'img/noun_Viking_8401.png'
   }
+  
+  
 
   draw () {
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height)

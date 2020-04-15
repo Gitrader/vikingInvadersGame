@@ -1,11 +1,11 @@
 'use strict'
 
 class Player {
-  constructor (canvas, lives) {
+  constructor (canvas, lives, imagesrc, width, height) {
     this.canvas = canvas
     this.ctx = this.canvas.getContext('2d')
-    this.width = 100
-    this.height = 100
+    this.width = width
+    this.height = height
     this.x = (canvas.width - (this.width / 2)) / 2
     this.y = this.canvas.height - this.height
     this.direction = 0
@@ -14,7 +14,7 @@ class Player {
     this.score = 0
     this.isShootingProjectiles = true
     this.image = new Image()
-    this.image.src = 'img/bow-and-arrow2.png'
+    this.image.src = imagesrc
   }
 
   // ADD ENEMY COLLISION TO THE CANVAS

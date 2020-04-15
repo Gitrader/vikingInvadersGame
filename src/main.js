@@ -36,42 +36,49 @@ function createSplashScreen () {
 
   const startButton = splashScreen.querySelector('#start')
   console.log(startGame)
-  startButton.addEventListener('click', startGame)
+  startButton.addEventListener('click', chooseYourWeapon)
 }
 
-function removeSplashScreen () {
-  splashScreen.remove()
-
-}
+// function removeSplashScreen () {
+//   splashScreen.remove()
+// }
 
 // choose your weapon
-// function chooseYourWeapon () {
-//   chooseWeapon = buildDom(`
-//   <main class=splash2>
-//     <h1>Choose your weapon</h1>
-//     <section class="section-splash2">
-//     <div>
-//     <img>
-//     <p class="bow">Bow</p>
-//     <p>Difficuly : Easy</p>
-//     </div>
-//     <div>
-//     <img>
-//     <p>Canon</p>
-//     <p>Difficuly : Hard</p>
-//     </div>
-//   </main>`
-//   )
+function chooseYourWeapon () {
+  removeScreen()
+  chooseWeapon = buildDom(`
+  <main class=splash2>
+    <h1>Choose your weapon</h1>
+    <section class="section-splash2">
+    <div>
+    <img>
+    <p class="bow">Bow</p>
+    <p>Difficuly : Easy</p>
+    </div>
+    <div>
+    <img>
+    <p class="canon">Canon</p>
+    <p>Difficuly : Hard</p>
+    </div>
+  </main>`
+  )
 
-//   document.body.appendChild(chooseYourWeapon)
-//   const bowWeapon = chooseWeapon.querySelector('.bow')
-//   console.log(startGame)
-//   bowWeapon.addEventListener('click', startGame)
+  document.body.appendChild(chooseWeapon)
+  const bowWeapon = chooseWeapon.querySelector('.bow')
+  const canonWeapon = chooseWeapon.querySelector('.canon')
+  // console.log(startGame)
+  bowWeapon.addEventListener('click', function () {
+    startGame('bow')
+  })
+  canonWeapon.addEventListener('click', function () {
+    startGame('canon')
+  })
+  console.log(bowWeapon)
+}
 
-//   function removeChooseYourWeapon () {
-//     chooseWeapon.remove()
-  
-//   }
+// function removeChooseYourWeapon () {
+//   chooseWeapon.remove()
+// }
 
 // game screen
 
@@ -121,10 +128,9 @@ function createGameOverScreen (score) {
     </section>
   </main>`
   )
-  
 
   const restartButton = gameOverScreen.querySelector('#restart')
-  restartButton.addEventListener('click', startGame)
+  restartButton.addEventListener('click', chooseYourWeapon)
   document.body.appendChild(gameOverScreen)
   return gameOverScreen
 }
@@ -133,12 +139,16 @@ function removeScreen () {
 }
 
 // start the game, end the game
-function startGame () {
+function startGame (weapon) {
   removeScreen()
+  // removeChooseYourWeapon ()
 
   createGameScreen()
-
-  game = new Game()
+  if (weapon === 'bow') {
+    game = new Game(true, false) // isBow , isCanon
+  } else if (weapon === 'canon') {
+    game = new Game(false, true) // isBow, isCanon
+  }
   game.gameScreen = gameScreen
 
   // Start game

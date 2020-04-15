@@ -1,18 +1,18 @@
 'use strict'
 
 class Projectiles {
-  constructor (canvas, x) {
-    this.canvas = canvas
-    this.ctx = canvas.getContext('2d')
-    this.width = 40
-    this.height = 40
+  constructor (canvas, x, imagesrc, width, height) {
+    this.canvas = canvas 
+    this.ctx = canvas.getContext('2d') 
+    this.width = width
+    this.height = height 
     this.size = 40
-    this.x = x
-    this.y = canvas.height
+    this.x = x + 15
+    this.y = canvas.height 
     this.direction = 1
     this.speed = 5
     this.image = new Image()
-    this.image.src = 'img/arrow-projectile2.png'
+    this.image.src = imagesrc
   }
 
   draw () {

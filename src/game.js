@@ -1,7 +1,7 @@
 'use strict'
 
 class Game {
-  constructor () {
+  constructor (isBow, isCanon) {
     this.player = null
     this.enemies = []
     this.projectiles = []
@@ -11,12 +11,25 @@ class Game {
     this.gameScreen = null
     this.canvas = null
     this.ctx = null
+    this.isBow = isBow
+    this.isCanon = isCanon
   }
 
   createProjectiles () {
     if (this.player.isShootingProjectiles) {
       const playerPositionX = this.player.x
-      const newProjectiles = new Projectiles(this.canvas, playerPositionX)
+      let imagesrc = ''
+      let width, height
+      if (this.isBow) {
+        imagesrc = '/img/arrow-projectile2.png'
+        width = 50
+        height = 50
+      } else if (this.isCanon) {
+        imagesrc = '/img/canon-ball.png'
+        width = 20
+        height = 20
+      }
+      const newProjectiles = new Projectiles(this.canvas, playerPositionX, imagesrc, width, height)
       this.projectiles.push(newProjectiles)
 
       // can shoot or not
@@ -67,7 +80,19 @@ class Game {
     this.canvas.setAttribute('width', this.containerWidth)
     this.canvas.setAttribute('height', this.containerHeight)
 
-    this.player = new Player(this.canvas, 3)
+    let imagesrc = ''
+    let width; let height = ''
+    if (this.isBow) {
+      imagesrc = '/img/bow-and-arrow2.png'
+      width = 80
+      height = 80
+    } else if (this.isCanon) {
+      imagesrc = '/img/canon5.png'
+      width = 80
+      height = 80
+    }
+
+    this.player = new Player(this.canvas, 3, imagesrc, width, height)
 
     // Event Listener to move the player
 
@@ -98,8 +123,14 @@ class Game {
 
       // // 1. Create new enemies randomly
       if (Math.random() > 0.98) {
+        let speed = 0
+        if (this.isBow) {
+          speed = 5
+        } else if (this.isCanon) {
+          speed = 10
+        }
         const randomWidthPosX = this.canvas.width * Math.random()
-        const newEnemy = new Enemy(this.canvas, randomWidthPosX, 5)// 5:enemy speed
+        const newEnemy = new Enemy(this.canvas, randomWidthPosX, speed)// 5:enemy speed
         this.enemies.push(newEnemy)
       }
 
