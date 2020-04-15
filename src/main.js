@@ -54,23 +54,25 @@ function chooseYourWeapon () {
     <div class="weapon" id="bow-weapon">
     <img src="img/bow-wp.png" class="img-bow" alt="bow">
     <br>
-    <a href="#" class="bow-p">Bow</a>
-    <p>Difficulty: Easy</p>
+    
+    <p class="bow-level">Easy</p>
     </div>
     <div class="weapon" id="canon-weapon">
     <img src="img/canon-wp.png" class="img-canon" alt="canon">
     <br>
-    <a href="#" class="canon-p">Canon</a>
-    <p>Difficulty: Hard</p>
+    
+    <p class="canon-level">Hard</p>
     </div>
     <section>
   </main>`
   )
+  // <a href="#" class="canon-p">Canon</a>
+  // <a href="#" class="bow-p">Bow</a>
   // <p class="canon-p">Canon</p>
   // <p class="bow-p">Bow</p>
   document.body.appendChild(chooseWeapon)
-  const bowWeapon = chooseWeapon.querySelector('.bow-p')
-  const canonWeapon = chooseWeapon.querySelector('.canon-p')
+  const bowWeapon = chooseWeapon.querySelector('.img-bow')
+  const canonWeapon = chooseWeapon.querySelector('.img-canon')
   // console.log(startGame)
   bowWeapon.addEventListener('click', function () {
     startGame('bow')
