@@ -21,11 +21,11 @@ class Game {
       let imagesrc = ''
       let width, height
       if (this.isBow) {
-        imagesrc = '/img/arrow-projectile2.png'
+        imagesrc = 'img/arrow-projectile2.png'
         width = 50
         height = 50
       } else if (this.isCanon) {
-        imagesrc = '/img/canon-ball.png'
+        imagesrc = 'img/canon-ball.png'
         width = 20
         height = 20
       }
@@ -83,11 +83,11 @@ class Game {
     let imagesrc = ''
     let width; let height = ''
     if (this.isBow) {
-      imagesrc = '/img/bow-and-arrow2.png'
+      imagesrc = 'img/bow-and-arrow2.png'
       width = 80
       height = 80
     } else if (this.isCanon) {
-      imagesrc = '/img/canon5.png'
+      imagesrc = 'img/canon5.png'
       width = 80
       height = 80
     }

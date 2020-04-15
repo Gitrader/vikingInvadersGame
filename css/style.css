@@ -261,7 +261,7 @@ i {
 }
 
 .section-splash2 {
-  background-image: url("../img/wood-board.png");
+  background-image: url("img/wood-board.png");
   background-repeat: no-repeat;
   background-size: 50%;
   padding: 15%;
@@ -334,7 +334,7 @@ i {
 }
 
 #bow-weapon {
-  background-image: url("../img/wood-board.png.jpg");
+  background-image: url("img/wood-board.png.jpg");
   background-repeat: no-repeat;
   background-size: 150%;
   margin-right: 50px;
