@@ -259,3 +259,85 @@ i {
   font-family: enchanted;
   margin-bottom: 30px;
 }
+
+.section-splash2 {
+  background-image: url("../img/wood-board.png");
+  background-repeat: no-repeat;
+  background-size: 50%;
+  padding: 15%;
+
+  /*background-position: center;
+  
+  background-size: cover;
+  padding-top: 10%;
+  padding-bottom: 19%;
+  margin-right:-100px;
+ margin-top:-150px;
+ margin-bottom: 0px; */
+  /* background-size: 100%; */
+  background-position: center;
+  display: flex;
+  justify-content: center;
+}
+
+.choose-title {
+  text-align: center;
+  margin-top: 50px;
+}
+.bow-p {
+  margin-top: 10px;
+  font-family: enchanted;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: white;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-color: white;
+  border-radius: 5px;
+}
+.canon-p {
+  margin-top: 10px;
+  font-family: enchanted;
+  font-size: 20px;
+  text-decoration: none;
+  background-color: white;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-color: white;
+  border-radius: 5px;
+}
+
+.weapon {
+  margin-top: 100px;
+  color: white;
+  margin-top: 0px;
+  width: 20%;
+}
+
+.img-bow {
+  width: 50px;
+  height: 50px;
+}
+
+.img-canon {
+  width: 50px;
+  height: 50px;
+}
+
+#canon-weapon {
+  /* background-image: url("../img/wood.jpg"); */
+  background-repeat: no-repeat;
+  background-size: 150%;
+  margin-right: 50px;
+  border: 1px solid;
+  padding-left: 50px;
+}
+
+#bow-weapon {
+  background-image: url("../img/wood-board.png.jpg");
+  background-repeat: no-repeat;
+  background-size: 150%;
+  margin-right: 50px;
+  border: 1px solid;
+  padding-left: 50px;
+}
