@@ -36,7 +36,7 @@ function createSplashScreen () {
   )
 
   splashScreenMusic.play()
-  splashScreenMusic.currentTime = 0
+  splashScreenMusic.currentTime = 0.2
   splashScreenMusic.volume = 0.3
 
   document.body.appendChild(splashScreen)

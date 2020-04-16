@@ -13,8 +13,8 @@ class Game {
     this.ctx = null
     this.isBow = isBow
     this.isCanon = isCanon
-    this.arrowSound = new Audio('../sounds/arrow.mp3')
-    this.canonSound = new Audio('../sounds/canon.mp3')
+    this.arrowSound = new Audio('sounds/arrow.mp3')
+    this.canonSound = new Audio('sounds/canon.mp3')
   }
 
   createProjectiles () {
