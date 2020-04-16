@@ -35,9 +35,9 @@ function createSplashScreen () {
   </main>`
   )
 
-  splashScreenMusic.play()
-  splashScreenMusic.currentTime = 0.2
-  splashScreenMusic.volume = 0.3
+  // splashScreenMusic.play()
+  // splashScreenMusic.currentTime = 0
+  // splashScreenMusic.volume = 0.3
 
   document.body.appendChild(splashScreen)
 
@@ -77,6 +77,9 @@ function chooseYourWeapon () {
   // <a href="#" class="bow-p">Bow</a>
   // <p class="canon-p">Canon</p>
   // <p class="bow-p">Bow</p>
+  splashScreenMusic.play()
+  splashScreenMusic.currentTime = 0
+  splashScreenMusic.volume = 0.3
   document.body.appendChild(chooseWeapon)
   const bowWeapon = chooseWeapon.querySelector('.img-bow')
   const canonWeapon = chooseWeapon.querySelector('.img-canon')
@@ -193,4 +196,7 @@ function getRandomNames () {
   } else return `${randomNames}, ${randomNames2} & ${randomNames3}`
 }
 
-window.addEventListener('load', createSplashScreen)
+window.addEventListener('load', function () {
+  createSplashScreen()
+}
+)
