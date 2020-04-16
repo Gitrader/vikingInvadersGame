@@ -7,6 +7,9 @@ let splashScreen
 let chooseWeapon
 let gameScreen
 let gameOverScreen
+const splashScreenMusic = new Audio('sounds/splashSound.mp3')
+const gameScreenMusic = new Audio('sounds/gameSound.mp3')
+const gameOverScreenMusic = new Audio('sounds/gameOver.mp3')
 
 function buildDom (htmlString) {
   const div = document.createElement('div')
@@ -24,13 +27,17 @@ function createSplashScreen () {
     <p> You are the last guardian standing to defend our King's fortress.
     <p> Choose your weapon and kill the maximum of Vikings.</p>
      <p>If 3 Vikings succeed to reach  the fortress our King will die!</p>
-     <p>Use your keyboard arrows <kbd><i class="arrow left"></i></kbd> <kbd><i class="arrow right"></i></kbd> to move and press your <kbd>spacebar</kbd> to throw your projectiles.</p>
+     <p>Use your keyboard arrows <kbd><i class="arrow left"></i></kbd> <kbd><i class="arrow right"></i></kbd> to move and press <kbd>S</kbd> to throw your projectiles.</p>
      <p> Hurry up, our King's life is in your hands! </p>
     
     <a href="#" id="start">Start</a>
     </section>
   </main>`
   )
+
+  splashScreenMusic.play()
+  splashScreenMusic.currentTime = 0
+  splashScreenMusic.volume = 0.3
 
   document.body.appendChild(splashScreen)
 
@@ -109,6 +116,10 @@ function createGameScreen () {
   </div>
 </main>
     `)
+  splashScreenMusic.pause()
+  gameScreenMusic.play()
+  gameScreenMusic.currentTime = +1.3
+  gameScreenMusic.volume = 0.3
   document.body.appendChild(gameScreen)
   return gameScreen
 }
@@ -127,7 +138,7 @@ function createGameOverScreen (score) {
           <span class="label">Score:</span>
           <span class="value">${score}</span>
         </div>
-    <p id="gameover-paragraph"> Odin, Ragnar & Magnus managed breaking into the fort and killed our King</p>
+    <p id="gameover-paragraph"> ${getRandomNames()} found a way to break into the fort and killed our King!</p>
     <div class="gameover-buttons">
     <a href="#" id="restart">Restart</a>
     <a href="https://app.slack.com/client/T0108L8M317/C010LF86RC7" class="slack">Share on Slack</a>
@@ -135,7 +146,10 @@ function createGameOverScreen (score) {
     </section>
   </main>`
   )
-
+  gameScreenMusic.pause()
+  gameOverScreenMusic.play()
+  gameOverScreenMusic.currentTime = 0
+  gameOverScreenMusic.volume = 0.3
   const restartButton = gameOverScreen.querySelector('#restart')
   restartButton.addEventListener('click', chooseYourWeapon)
   document.body.appendChild(gameOverScreen)
@@ -164,7 +178,19 @@ function startGame (weapon) {
 
 function endGame (score) {
   removeGameScreen()
+
   createGameOverScreen(score)
+}
+
+const vikingsNames = ['Leif', 'Herleif', 'Ragnar', 'Gunnar', 'Vidar', 'Magnus', 'Loki', 'Aric', 'Ivar', 'Arkyn', 'Freyre', 'Tor', 'Harald', 'Odin', 'Ulrik']
+
+function getRandomNames () {
+  const randomNames = vikingsNames[Math.floor(Math.random() * vikingsNames.length)]
+  const randomNames2 = vikingsNames[Math.floor(Math.random() * vikingsNames.length)]
+  const randomNames3 = vikingsNames[Math.floor(Math.random() * vikingsNames.length)]
+  if ((randomNames === randomNames2) || (randomNames === randomNames3) || (randomNames2 === randomNames3)) {
+    return `${'Leif'}, ${'Herleif'} & ${'Ragnar'}`
+  } else return `${randomNames}, ${randomNames2} & ${randomNames3}`
 }
 
 window.addEventListener('load', createSplashScreen)

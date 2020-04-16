@@ -13,8 +13,6 @@ class Enemy {
     this.image = new Image()
     this.image.src = 'img/noun_Viking_8401.png'
   }
-  
-  
 
   draw () {
     this.ctx.drawImage(this.image, this.x, this.y, this.width, this.height)
@@ -31,8 +29,4 @@ class Enemy {
   isInsideScreen () {
     return (this.y + this.size > 0) && (this.x + this.size < this.canvas.width)
   }
-
-//   isNotOnTheScreen () {
-//     return (this.y + this.size < 0) && (this.x + this.size > this.canvas.width)
-//   }
 }

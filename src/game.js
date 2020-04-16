@@ -13,6 +13,8 @@ class Game {
     this.ctx = null
     this.isBow = isBow
     this.isCanon = isCanon
+    this.arrowSound = new Audio('../sounds/arrow.mp3')
+    this.canonSound = new Audio('../sounds/canon.mp3')
   }
 
   createProjectiles () {
@@ -20,12 +22,25 @@ class Game {
       const playerPositionX = this.player.x
       let imagesrc = ''
       let width, height
+
       if (this.isBow) {
         imagesrc = 'img/arrow-projectile2.png'
+        this.canonSound.pause()
+        this.canonSound.currentTime = 0
+        this.arrowSound.currentTime = 0
+        this.arrowSound.volume = 1
+        this.arrowSound.play()
+
         width = 50
         height = 50
       } else if (this.isCanon) {
         imagesrc = 'img/canon-ball.png'
+        this.arrowSound.pause()
+        this.arrowSound.currentTime = 0
+        this.canonSound.currentTime = 0
+        this.canonSound.volume = 1
+        this.canonSound.play()
+
         width = 20
         height = 20
       }
@@ -45,7 +60,6 @@ class Game {
   }
 
   checkProjectilesEnemyCollisions () {
-    console.log('SALUT')
     this.enemies.forEach(function (enemy) {
       this.projectiles.forEach(function (oneProjectile) {
         if (oneProjectile.didCollide(enemy)) {
@@ -103,7 +117,7 @@ class Game {
       } else if (event.keyCode === 37) {
         console.log('lEFT')
         this.player.setDirection('left')
-      } else if (event.keyCode === 32) {
+      } else if (event.keyCode === 83) {
         console.log('SHOOT')
         this.createProjectiles()
       }
@@ -196,6 +210,8 @@ class Game {
 
   gameOver () {
     this.gameIsOver = true
+    this.canonSound = null
+    this.arrowSound = null
 
     endGame(this.score)
   }

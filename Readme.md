@@ -4,7 +4,7 @@
 
 This game is a survival game where Vikings are trying to penetrate a king’s fortress and only one hero remains standing to protect it.
 
-More Vikings you kill, more points you get. However if 3 Vikings succeed to avoid your arrows and penetrate the fortress, the game is over!
+More Vikings you kill, more points you get. However if 3 Vikings succeed to avoid your arrows or canon balls and penetrate the fortress, the game is over!
 
 ## About the project
 
@@ -15,9 +15,10 @@ A player that can move in two directions left and right and can throw projectile
 ### Backlog
 
 - Choose another weapon
+
 - Increase level difficulty
+
 - Extra sound effects
-- Table of scores with the ranking of the players
 
 ## Data structure
 
@@ -49,6 +50,8 @@ Build dom
 
 Create splash screen / Remove splash screen
 
+Create choose your weapon screen / remove choose your weapon screen
+
 Create game screen / Remove game screen
 
 Create GameOver screen / Remove GameOver screen (Play Again button)
@@ -57,7 +60,7 @@ Start game
 
 Window event listener load game
 
-Keydown event listener with keycode (left, right, spacebar)
+Keydown event listener with keycode (left, right, S)
 
 4. ##### Game Constructor
 
@@ -67,15 +70,21 @@ Keydown event listener with keycode (left, right, spacebar)
 - ctx (2d)
 - enemies
 - player
-- gameIsover
+- gameIsOver
 - gameScreen
-- Score
+- score
+- projectiles
+- isBow
+- isCanon
+- arrowSound
+- canonSound
 
 ###### Methods :
 
+- createProjectiles
+- checkProjectilesEnemyCollisions
 - start
 - startLoop : enemies, player and projectiles animation
-- checkCollision : (projectiles and enemies + enemies and canvas border)
 - gameOver : when enemies reached 3 times the bottom of the canvas
 - Updating scores with updateGameStats()
 
@@ -87,7 +96,12 @@ Keydown event listener with keycode (left, right, spacebar)
 - ctx (2d)
 - x position
 - y position
-- size
+- width
+- height
+- direction
+- score
+- isShootingProjectiles
+- imagesrc
 - image
 - speed
 - lives
@@ -95,9 +109,11 @@ Keydown event listener with keycode (left, right, spacebar)
 ###### Methods:
 
 - setDirection
+- handleScreenCollision
+- updatePosition
+- removeLife
+- updateScore
 - draw
-- update
-- collideWithEnemy
 
 6. ##### Enemy Constructor
 
@@ -108,15 +124,17 @@ Keydown event listener with keycode (left, right, spacebar)
 - x position
 - y position
 - image
+- imagesrc
 - size
+- height
+- Width
 - speed
-- lives
 
 ###### Methods:
 
 - draw
-- collideWithCanvas
-- remove
+- updatePosition
+- isInsideScreen
 
 7. ##### Projectiles Constructor
 
@@ -125,28 +143,38 @@ Keydown event listener with keycode (left, right, spacebar)
 - canvas
 - ctx (2d)
 - speed
+- width
+- height
+- size
+- direction
 - x position
 - y position
 - image
+- imagesrc
 
 ###### Methods:
 
 - draw
-- update
-- collideWithEnemy
-- remove
+- updatePosition
+- shootProjectiles
+- isInsideScreen
+- didCollide
 
 ## States and States Transitions
 
 - startScreen
 
-  ​ Bonus : choose your weapon
+​ Start the game
 
-  ​ Start the game
+​ Goes to Choose your weapon screen when Start button is clicked
 
-  ​ Goes to gameScreen when Start button is clicked
+- chooseYourWeapon
 
-* gameScreen
+Choose your weapon bow or canon corresponding to the level of difficulty
+
+When selecting a weapon, redirects to the gameScreen
+
+- gameScreen
 
 ​ Game running while lives > 0
 
@@ -156,7 +184,7 @@ Keydown event listener with keycode (left, right, spacebar)
 
 ​ Shows Game Over with 3 random Viking names and the possibility to share the score on Slack
 
-​ Goes back to Game Screen when Restart button is clicked
+​ Goes back to Choose Your Weapon screen when Restart button is clicked
 
 ## Task
 
@@ -170,13 +198,11 @@ Keydown event listener with keycode (left, right, spacebar)
 - Create Game constructor
 - Create loop in game.js
 - Create Player constructor
-- Extend Player constructor
 - Create Enemy constructor
 - Draw Enemies in game.js
 - Move Enemies in game.js
 - Move player in game.js
 - Create Projectiles constructor
-- Create Projectiles extended class
 - Check Collisions in game.js
 - Remove projectiles/enemies from the gameScreen
 - Check collision logic (projectiles + enemies)
@@ -189,8 +215,10 @@ Keydown event listener with keycode (left, right, spacebar)
 
 ## Git
 
-[Link Repo - Link Deploy](https://github.com/Gitrader/vikingInvadersGame.git)
+[Link Repo - Link Deploy](https://gitrader.github.io/vikingInvadersGame/)
 
 ## Slides
 
 URls for the project presentation (slides)
+
+[Link Slides](https://docs.google.com/presentation/d/1SWsAFJ8aoFW0ZgbZ-3sIdWx9mfcW9C1SOsetkq7ps-w/edit?usp=sharing)

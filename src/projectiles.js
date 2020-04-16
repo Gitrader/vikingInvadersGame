@@ -2,13 +2,13 @@
 
 class Projectiles {
   constructor (canvas, x, imagesrc, width, height) {
-    this.canvas = canvas 
-    this.ctx = canvas.getContext('2d') 
+    this.canvas = canvas
+    this.ctx = canvas.getContext('2d')
     this.width = width
-    this.height = height 
+    this.height = height
     this.size = 40
     this.x = x + 15
-    this.y = canvas.height 
+    this.y = canvas.height
     this.direction = 1
     this.speed = 5
     this.image = new Image()
